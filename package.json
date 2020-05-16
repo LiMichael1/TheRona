@@ -1,10 +1,13 @@
 {
-  "name": "my-coronavirus-map",
-  "description": "Demo repo for blog post",
+  "name": "coronavirus",
+  "description": "Covid website",
   "version": "0.2.0",
-  "author": "Colby Fayock <hello@colbyfayock.com>",
+  "author": "ThunderBoltz",
   "dependencies": {
+    "@material-ui/core": "^4.9.14",
     "axios": "^0.19.2",
+    "chart.js": "^2.9.3",
+    "classnames": "^2.2.6",
     "gatsby": "^2.19.43",
     "gatsby-plugin-react-helmet": "^3.1.23",
     "gatsby-plugin-react-leaflet": "2.0.12",
@@ -16,6 +19,8 @@
     "path": "^0.12.7",
     "prop-types": "^15.7.2",
     "react": "^16.13.0",
+    "react-chartjs-2": "^2.9.0",
+    "react-countup": "^4.3.3",
     "react-dom": "^16.13.0",
     "react-helmet": "^5.2.0",
     "react-leaflet": "^2.6.3"

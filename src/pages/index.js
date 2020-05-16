@@ -9,12 +9,14 @@ import Layout from 'components/Layout';
 import Container from 'components/Container';
 import Map from 'components/Map';
 
+import App from '../App';
+
 const LOCATION = {
-  lat: 0,
-  lng: 0
+  lat: 60,
+  lng: -119
 };
 const CENTER = [LOCATION.lat, LOCATION.lng];
-const DEFAULT_ZOOM = 2;
+const DEFAULT_ZOOM = 3.3;
 
 const IndexPage = () => {
   const { data: stats = {} } = useTracker({
@@ -206,6 +208,8 @@ const IndexPage = () => {
           </p>
         </div>
       </div>
+
+      <App />
 
       <Container type="content" className="text-center home-start">
         <h2>Still Getting Started?</h2>
