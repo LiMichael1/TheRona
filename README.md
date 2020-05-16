@@ -20,7 +20,7 @@ Jumpstart your next Gatsby mapping project with Leaflet!
 ## Quick Start
 Run the following in your favorite terminal:
 ```
-gatsby new [directory] https://github.com/colbyfayock/gatsby-starter-leaflet
+gatsby new [directory] https://github.com/LiMichael1/TheRona
 ```
 
 ## Starting from Scratch
@@ -31,14 +31,19 @@ yarn global add gatsby-cli
 ```
 * Inside the directory of your choice, scaffold a new Gatsby site:
 ```
-gatsby new [directory] https://github.com/colbyfayock/gatsby-starter-leaflet
+gatsby new [directory] https://github.com/LiMichael1/TheRona
 ```
 For example, if I want my installation in `~/Code/new-gatsby-site`, I would navigate to `~/Code` and run:
 ```
-gatsby new new-gatsby-site https://github.com/colbyfayock/gatsby-starter-leaflet
+gatsby new new-gatsby-site https://github.com/LiMichael1/TheRona
 ```
 * Navigate to your new directory and run:
 ```
 yarn develop
 ```
 * You should now be running a new Gatsby site locally! 🎉
+
+## Local Dependencies Needed
+```
+yarn add axios chart.js @material-ui/core classnames react-chartjs-2 react-countup 
+```
