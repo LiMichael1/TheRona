@@ -1,7 +1,7 @@
 import React from 'react';
 import { Chart, StatePicker, Display, Bar } from './components';
 import { fetchDailyData } from './api';
-// import styles from './App.module.css';
+import styles from './App.module.css';
 
 class App extends React.Component {
   state = {
@@ -24,7 +24,7 @@ class App extends React.Component {
     const { data } = this.state;
 
     return (
-      <div>
+      <div className={styles.container}>
         <StatePicker handleStateChange={this.handleStateChange} /> 
         <Display data={data[data.length - 1]} />
         <Chart data={data}/>  
