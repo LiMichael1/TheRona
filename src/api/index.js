@@ -9,6 +9,7 @@ export const fetchData = async () => {
         const modifiedData = data.map((stateData) => ({
             state: stateData.state,
             pos: stateData.positive,
+            neg: stateData.negative
         }));
 
         return modifiedData;
@@ -28,6 +29,8 @@ export const fetchDailyData = async (state) => {
 
         let modifiedData = data.map((dailyData) => ({
             pos: dailyData.positive,
+            neg: dailyData.negative,
+            tested: dailyData.positive + dailyData.negative,
             death: dailyData.death,
             date: dailyData.date,
             posInc: dailyData.positiveIncrease,

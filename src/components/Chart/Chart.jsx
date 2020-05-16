@@ -1,8 +1,9 @@
 import React from 'react';
-import { Line } from 'react-chartjs-2';
+import { Line, Pie } from 'react-chartjs-2';
 import styles from './Chart.module.css';
 
 const Chart = ({ data }) => {
+    const arrayLength = data.length;
 
     const lineChart = (
         data[0]
@@ -22,6 +23,12 @@ const Chart = ({ data }) => {
                                 borderColor: 'red',
                                 fill: true,
                             },
+                            {
+                                data: data.map(res => res.tested),
+                                labels: 'Tested',
+                                borderColor: 'yellow',
+                                fill: true,
+                            }
                         ],
                     }}
 
@@ -78,6 +85,28 @@ const Chart = ({ data }) => {
             ) : null
     );
 
+    const pieChart = (
+        data[0] 
+            ? (
+                <Pie
+                    data = {{
+                        labels: ['Positive', 'Tested', 'Died'],
+                        datasets: [{
+                            data: [
+                                data[arrayLength-1].pos,
+                                data[arrayLength-1].tested, 
+                                data[arrayLength-1].death                                
+                            ],
+                            backgroundColor: ['blue', 'yellow', 'red']
+                        }
+                        ],
+                    }}
+
+                />
+            
+            ) : null
+    );
+
     return (
         <div>
             <div className={styles.container}>
@@ -88,6 +117,9 @@ const Chart = ({ data }) => {
             </div>
             <div className={styles.container}>
                 { (accChart) ? accChart : 'Acc'}
+            </div>
+            <div>
+                { (pieChart) ? pieChart : 'huh'}
             </div>
         </div>
     );

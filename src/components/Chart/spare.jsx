@@ -32,11 +32,19 @@ export default class Chart extends React.Component
             labels: dailyData.map(res => res.date),
             datasets: [
                 {
+                    label: 'Tested',
+                    borderColor: 'yellow',
+                    fill: true,
+                },
+
+                {
                     label: 'Infected',
                     borderColor: '#3333ff',
                     fill: true,
                     data: dailyData.map(res => res.pos),
-                }, {
+                }, 
+                
+                {
                     label: 'Death',
                     borderColor: 'red',
                     fill: true,

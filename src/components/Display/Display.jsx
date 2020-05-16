@@ -9,10 +9,19 @@ const Display = ({ data }) => {
     if(!data)
         return (<h1>Technical Difficulties</h1>)
 
-    console.log(data.pos, data.death);
+    let tested = data.pos + data.neg;
 
     return ( 
         <div className={styles.container}>
+            <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.tested)}>
+                <CardContent>
+                    <Typography color="textSecondary" gutterBottom>Tested</Typography>
+                    <Typography variant="h5">
+                        <CountUp start={0} end={tested} duration={2.5} separator="," />
+                    </Typography>
+                </CardContent>
+            </Grid>
+
             <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.infected)}>
                 <CardContent>
                     <Typography color="textSecondary" gutterBottom>Infected</Typography>
