@@ -1,5 +1,5 @@
 import React from 'react';
-import { Chart, StatePicker, Display, Doughnut, Bar } from './components';
+import { Chart, StatePicker, Display, Doughnut, Bar, Table } from './components';
 import { fetchDailyData } from './api';
 import styles from './App.module.css';
 
@@ -28,8 +28,6 @@ class App extends React.Component {
         <StatePicker handleStateChange={this.handleStateChange} /> 
         <Display data={data[data.length - 1]} />
         <Chart data={data}/>  
-        <Bar />
-        <Doughnut />
         </div>
     );
   }

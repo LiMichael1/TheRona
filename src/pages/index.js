@@ -10,6 +10,7 @@ import Container from 'components/Container';
 import Map from 'components/Map';
 
 import App from '../App';
+import { Doughnut, Bar, Table } from '../components';
 
 const LOCATION = {
   lat: 60,
@@ -210,6 +211,9 @@ const IndexPage = () => {
       </div>
 
       <App />
+      <Bar />
+      <Doughnut /> 
+      <Table />
     </Layout>
   );
 };

@@ -4,6 +4,38 @@ import popData from './state_pop.json';
 
 const url = 'https://covidtracking.com/api/v1';
 
+export const fetchSimpleData = async () => {
+    try {
+        const { data } = await axios.get(`${url}/states/current.json`);
+
+        let array = [];
+        for(let key in popData)
+            array.push(popData[key]);
+        
+        let modifiedData = data;
+
+
+        for(let i in array)
+        {
+            modifiedData[i].pop = array[i];
+            let math = modifiedData[i].total / modifiedData[i].pop;
+            math = Math.round(math * 100000);
+            modifiedData[i].testedPerPop = math;
+
+            math = modifiedData[i].positive/ modifiedData[i].pop;
+            math = Math.round(math * 100000);
+            modifiedData[i].posPerPop = math;
+        }
+
+        modifiedData.sort(function(a,b) { return a.posPerPop - b.posPerPop}).reverse();
+
+        return modifiedData;
+    } catch(err) {
+        console.log('Error!');
+        console.error(err);
+    }
+}
+
 
 export const fetchData = async () => {
     try {
