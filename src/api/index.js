@@ -1,16 +1,32 @@
 import axios from 'axios';
+import popData from './state_pop.json';
+
 
 const url = 'https://covidtracking.com/api/v1';
+
 
 export const fetchData = async () => {
     try {
         const { data } = await axios.get(`${url}/states/current.json`);
 
-        const modifiedData = data.map((stateData) => ({
+        let array = [];
+        for(let key in popData)
+            array.push(popData[key]);
+    
+        let modifiedData = data.map((stateData) => ({
             state: stateData.state,
             pos: stateData.positive,
         }));
 
+        for(let i in array)
+        {
+            modifiedData[i].pop = array[i];
+            let math = modifiedData[i].pos / modifiedData[i].pop;
+            math = Math.round(math * 100000);
+            modifiedData[i].posPerPop = math;
+
+        }
+        
         return modifiedData;
     } catch(err) {
         console.log('Error!');
@@ -42,8 +58,6 @@ export const fetchDailyData = async (state) => {
             modifiedData[i].posAcc = modifiedData[i].posInc - modifiedData[i - 1].posInc ;
             modifiedData[i].deathAcc = modifiedData[i].deathInc - modifiedData[i - 1].deathInc;
         }
-
-        console.log(modifiedData);
 
         return modifiedData;
     } catch(err) {
